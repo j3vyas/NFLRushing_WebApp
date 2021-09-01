@@ -1,0 +1,28 @@
+{
+  "name": "NFL_Rushing",
+  "version": "1.0.0",
+  "description": "TheScore take home project - NFL Rushing",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "@openui5/sap.m": "^1",
+    "@openui5/sap.ui.core": "^1",
+    "@openui5/sap.ui.layout": "^1",
+    "@openui5/themelib_sap_fiori_3": "^1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --inspect server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsicareers/nfl-rushing.git"
+  },
+  "author": "Jay Vyas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsicareers/nfl-rushing/issues"
+  },
+  "homepage": "https://github.com/tsicareers/nfl-rushing#readme"
+}

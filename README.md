@@ -54,4 +54,15 @@ We will evaluate you on your ability to solve the problem defined in the require
 If you have any questions regarding requirements, do not hesitate to email your contact at theScore for clarification.
 
 ### Installation and running this solution
-... TODO
+0. Must have node.js installed (time of writing this, v14.17.1 is being used)
+1. Download this repo (git clone repo_url)
+2. Install all packages (npm install)
+3. Start the server (npm run start)
+4. Go to local server to view application (enter into url localhost:8080 or whatever the default port set to the machine)
+
+### Future work / TODOs:
+0. Determine if pre-processing is better for UI or Server
+1. Add i18n support
+2. Make the columns more obvious when they can be filtered?
+3. Add clear filtering option
+4. Add more options for download (delimiters, etc)

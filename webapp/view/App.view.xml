@@ -1,0 +1,129 @@
+<mvc:View controllerName="sap.ui.demo.walkthrough.controller.App"
+    xmlns="sap.ui.table"
+    xmlns:m="sap.m"
+    xmlns:c="sap.ui.commmons"
+    xmlns:mvc="sap.ui.core.mvc">
+
+	<Table
+		id="table"
+		rows="{ path: '/nflRushingData' }"
+		visibleRowCount="15"
+		selectionMode="None"
+		filter="filterPrice"
+		ariaLabelledBy="title">
+		<columns>
+			<Column
+				width="11rem"
+				filterProperty="Player">
+				<m:Label text="Player" />
+				<template>
+					<m:Text text="{Player}" wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				width="11rem">
+				<m:Label text="Team" />
+				<template>
+					<m:Text text="{Team}" wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				width="11rem">
+				<m:Label text="Position" />
+				<template>
+					<m:Text text="{Pos}" wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				width="11rem">
+				<m:Label text="Rushing Attempts Per Game Average" />
+				<template>
+					<m:Text text="{Att_G}" wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				width="11rem">
+				<m:Label text="Rushing Attempts" />
+				<template>
+					<m:Text text="{Att}" wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				width="11rem"
+				sortProperty="Yds">
+				<m:Label text="Total Rushing Yards" />
+				<template>
+					<!-- <m:Text text="{ parts: [ { path: 'Yds' } ], formatter:'.convertToNumber' }" wrapping="false" /> -->
+					<m:Text text="{ path: 'Yds' }" wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				width="11rem">
+				<m:Label text="Rushing Average Yards Per Attempt" />
+				<template>
+					<m:Text text="{Avg}" wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				width="11rem">
+				<m:Label text="Rushing Yards Per Game" />
+				<template>
+					<m:Text text="{Yds_G}" wrapping="false"/>
+				</template>
+			</Column>
+			<Column
+				width="11rem"
+				sortProperty="TD">
+				<m:Label text="Total Rushing Touchdowns" />
+				<template>
+					<m:Text text="{TD}" wrapping="false" />
+				</template>
+			</Column>
+			<!-- Adding column in JS due to custom sort issue -->
+			<!-- <Column
+				width="11rem"
+				sortProperty="Lng">
+				<m:Label text="Longest Rush" />
+				<template>
+					<m:Text text="{Lng}" wrapping="false" />
+				</template>
+			</Column> -->
+			<Column
+				width="11rem">
+				<m:Label text="Rushing First Downs" />
+				<template>
+					<m:Text text="{1st}" wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				width="11rem">
+				<m:Label text="Rushing First Down Percentage" />
+				<template>
+					<m:Text text="{1st%}" wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				width="11rem">
+				<m:Label text="Rushing 20+ Yards Each" />
+				<template>
+					<m:Text text="{20+}" wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				width="11rem">
+				<m:Label text="Rushing 40+ Yards Each" />
+				<template>
+					<m:Text text="{40+}" wrapping="false" />
+				</template>
+			</Column>
+			<Column
+				width="11rem">
+				<m:Label text="Rushing Fumbles" />
+				<template>
+					<m:Text text="{FUM}" wrapping="false" />
+				</template>
+			</Column>
+		</columns>
+	</Table>
+    <m:Button text="Download" press=".downloadData"/>
+</mvc:View>
