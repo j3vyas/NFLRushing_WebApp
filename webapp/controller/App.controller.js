@@ -16,8 +16,8 @@ sap.ui.define([
             this._oView.setModel( oModel );
             this._oTable.getModel().setSizeLimit( 10000 );
 
-            this.addCustomColumnSorting(); 
-            this.getTableData();
+            this.addCustomSortingLongestRushColumn(); 
+            this.getNFLRushingTableData();
             return;
         },
 
@@ -25,7 +25,7 @@ sap.ui.define([
         //SAPUI5 Table will filter very sporadically ( 1, 2, 3, 10, 10T, 11, 2, 7 ... ??? )
         //https://answers.sap.com/questions/10483218/custom-sorter-in-sapuitabletable.html
         //https://blogs.sap.com/2014/01/13/custom-sorter-and-filter-in-sapui5-table/
-        addCustomColumnSorting: function() {
+        addCustomSortingLongestRushColumn: function() {
             var that = this;
             var oColumn = new sap.ui.table.Column({
                 width: '11rem',
@@ -72,9 +72,9 @@ sap.ui.define([
             this._oTable.addColumn(oColumn);
         },
 
-        getTableData: function() {
+        getNFLRushingTableData: function() {
             var that = this;
-            var sURL = 'http://localhost:8080/rushing'
+            var sURL = 'http://localhost:8080/nflrushing'
             $.ajax({
                 type: 'GET',
                 url: sURL,
@@ -85,21 +85,13 @@ sap.ui.define([
             });
         },
 
-        //Entries with comma are considered as string, format them?
-        // convertToNumber: function( val ){
-        //     if( typeof val === 'string' ){
-        //         return parseFloat( val.replace( /,/g, '' ) );
-        //     }
-        //     return val;
-        // },
-
         taskSuccess: function( data ){
             var oModel = this._oView.getModel().getData();
 
-            //Limitation of SAPUI5 Data binding model; it uses / to seperate objects in models, eg: att/g = att: { g: }.
+            //Limitation of SAPUI5 Data binding model; it uses '/' to seperate objects in models, eg: att/g = att: { g: }.
             //Workaround involves iterating through each entry and making it SAPUI5 model friendly.
+            //Additionally, peform any data manipulations here to customize handling of data
             data.forEach( ( d ) => {
-                //perform any data manipulations here
                 if( typeof d['Yds'] === 'string' ){
                     d['Yds'] = parseInt( d['Yds'].replace( /,/g, '' ) );
                 }

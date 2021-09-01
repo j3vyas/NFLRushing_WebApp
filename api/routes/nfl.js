@@ -3,8 +3,7 @@
 module.exports = function( app ) {
   var nfl = require( '../controllers/nfl' );
 
-  // todoList Routes
-  app.route( '/rushing' )
+  app.route( '/nflrushing' )
     .get( nfl.getAllData );
     // .post(nfl.addToData);
 };

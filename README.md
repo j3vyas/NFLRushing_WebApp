@@ -66,3 +66,4 @@ If you have any questions regarding requirements, do not hesitate to email your 
 2. Make the columns more obvious when they can be filtered?
 3. Add clear filtering option
 4. Add more options for download (delimiters, etc)
+5. Add unit + component tests
